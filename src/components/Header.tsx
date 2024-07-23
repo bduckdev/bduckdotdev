@@ -14,8 +14,12 @@ const navLinks: NavLinkType[] = [
         title: "portfolio",
     },
     {
+        href: "/brennan-duck.pdf",
+        title: "resume",
+    },
+    {
         href: "/contact",
-        title: "resume/contact",
+        title: "contact",
     },
 ];
 

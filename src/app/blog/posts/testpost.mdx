@@ -1,0 +1,217 @@
+---
+title: How I made a mediocre blog site in 27 minutes
+date: July 23rd, 2024 
+description: How I made my website using Next.js 14 & MDX
+image: /img/testpost.png
+---
+
+As a developer recently entering the job market, I decided that it's time for me to level up my personal website. Instead of a simple page with hyperlinks to my social media and resume. It has evolved to become simple hyperlinks to my social media and resume _feauturing MDX_. This all begs the questions...
+
+## What is MDX?
+
+It's Markdown + JSX.
+
+Here's an example from the docs (You can read more [here](https://mdxjs.com/docs/what-is-mdx/)):
+
+```
+Welcome! <a href="about.html">
+
+This is home of...
+
+# The Falcons!</a>
+```
+
+To be completely honest, I don't know that for a simple blog site that you would need to choose this over conventional Markdown, but for something more robust such as documentation it seems very useful. [This guy](https://www.youtube.com/watch?v=0aaxLidatlI) does a pretty good job of demonstrating such a use case. I used it for this because it seemed like fun.
+
+
+
+## The method
+
+Ok, so enough of all that, here's how I did it.
+
+### Dependencies
+
+#### Next.js 14 (duh)
+This is complete overkill for a website as simple as mine, but it's still pretty sweet for doing the RSC stuff, and it comes with a ton of useful built-in optimizations for stuff like images.
+
+#### gray-matter
+gray-matter is a JavaScript library that let's you parse metadata from the top of your files.
+
+#### next-mdx-remote
+This lets you pull the mdx from wherever you want, whether that's a database, or files outside of the app router.
+
+### Basic Setup
+1. Add the ```withMDX``` stuff to your next.config.js
+```
+const withMDX = require("@next/mdx")();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    // Configure `pageExtensions` to include MDX files
+    pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+    // Optionally, add any other Next.js config below
+};
+module.exports = withMDX(nextConfig);
+```
+2. Optionally add an image to your public folder.
+```
+./public
+├── img
+│   └── cat_crying.png
+├── next.svg
+└── vercel.svg
+```
+3. Let's setup our basic file structure.
+```
+./src/app/blog
+├── layout.tsx
+├── page.tsx
+├── posts
+│   └── testpost.mdx
+└── [slug]
+    └── page.tsx
+```
+4. Create a test post.
+// src/app/blog/posts/testpost.mdx
+```
+---
+title: How to get a girlfriend as a Haskell developer
+description: Foo bar buzz
+date: April 20th 1969
+image: /img/cat_crying.png
+---
+## This task can easily be divided into 3 steps:
+1. Conceive
+2. Believe
+3. Achieve
+```
+5. Setup a page to view all posts.
+```
+// src/app/blog/page.tsx
+import fs from "fs";
+import matter from "gray-matter";
+import Image from "next/image";
+import Link from "next/link";
+import path from "path";
+
+export default function BlogPage() {
+  const postsDir = "src/app/blog/posts";
+  const files = fs.readdirSync(path.join(postsDir));
+
+  const posts = files.map((filename) => {
+    const fileContents = fs.readFileSync(
+      path.join(postsDir, filename),
+      "utf-8",
+    );
+
+
+    const { data: frontMatter } = matter(fileContents);
+
+
+/*
+Here we're using gray-matter to get the meta data from the post we made and 
+creating a url slug based on the filename.
+*/
+    return {
+      meta: frontMatter,
+      slug: filename.replace(".mdx", ""),
+    };
+  });
+
+  return (
+    <>
+      <h2 className="text-2xl font-black">Posts</h2>
+      {posts.map((post) => (
+        <Link href={"/blog/" + post.slug} passHref key={post.slug}>
+          <div className="flex justify-evenly bg-base-200 hover:bg-gray-300 transition-colors">
+            <div className="w-1/2 flex-col flex justify-between">
+              <h2 className="text-xl font-black pt-1">{post.meta.title}</h2>
+              <p className="text-xs italic pb-1">{post.meta.description}</p>
+              <p className="text-sm font-mono hover:text-red-500 transition-colors">
+                click to read
+              </p>
+            </div>
+            <Image
+              height={150}
+              width={150}
+              src={post.meta.image}
+              alt=""
+              className="w-24 h-24 object-cover"
+            />
+          </div>
+        </Link>
+      ))}
+    </>
+  );
+}
+
+```
+6. Next, let's setup a page to view our blog.
+```js
+// src/app/blog/[slug]/page.tsx
+
+import fs from "fs";
+import matter from "gray-matter";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Image from "next/image";
+import path from "path";
+
+
+// Return a list of `params` to populate the [slug] dynamic segment.
+export async function generateStaticParams() {
+  const files = fs.readdirSync(path.join("src/app/blog/posts"));
+
+  const paths = files.map((filename) => ({
+    slug: filename.replace(".mdx", ""),
+  }));
+
+  return paths;
+}
+
+// read the file from the url slug
+function getPost({ slug }: { slug: string }) {
+  const mdFile = fs.readFileSync(
+    path.join("src/app/blog/posts", slug + ".mdx"),
+    "utf-8",
+  );
+  const { data: frontMatter, content } = matter(mdFile);
+
+  return { frontMatter, slug, content };
+}
+
+export default function Page({ params }: any) {
+  const props = getPost(params);
+
+  return (
+  // tailwind typography plugin for styling
+    <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate prose-i">
+      <h1>{props.frontMatter.title}</h1>
+      <p>{props.frontMatter.date}</p>
+      <Image
+        className="w-full h-48 object-cover"
+        src={props.frontMatter.image}
+        width={1000}
+        height={1000}
+        alt=""
+      />
+      <MDXRemote source={props.content}></MDXRemote>
+    </article>
+  );
+}
+```
+Read more about generateStaticParams [here](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)
+
+7. Our blog post is now viewable at ```URL/blog/testpost```
+![Screenshot](/img/testpost.png)
+
+
+
+
+
+
+## Conclusion
+
+Just use HTMX bro. Write your own Markdown parser for your preferred language, don't use any CSS, switch to Vim, and stop going outside. To be honest, why are we even using JavaScript?
+
+Follow me on [LinkedIn](https://www.linkedin.com/in/bduckdev/) for whenever the accompanying post, _**"How I wrote my own Markdown parser and deployed my site using Rust so strangers on the internet won't make fun of me"**_ comes out.
+
