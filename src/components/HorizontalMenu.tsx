@@ -10,10 +10,13 @@ interface HorizontalMenuProps {
 }
 export default function HorizontalMenu({ links }: HorizontalMenuProps) {
     return (
-        <ul className="menu menu-horizontal m-1">
+        <ul className="flex justify-center flex-wrap">
             {links.map((link) => (
                 <li key={link.title}>
-                    <Link className="font-mono text-[.5rem] lg:text-lg" href={link.href}>
+                    <Link
+                        className="btn btn-ghost font-mono text-[.5rem] lg:text-lg"
+                        href={link.href}
+                    >
                         {link.title}
                     </Link>
                 </li>

@@ -1,10 +1,10 @@
+"use client";
+import { useEffect } from "react";
+import "./Header.css";
 import HorizontalMenu, { NavLinkType } from "./HorizontalMenu";
+import Link from "next/link";
 
 const navLinks: NavLinkType[] = [
-    {
-        href: "/",
-        title: "home",
-    },
     {
         href: "/blog",
         title: "blog",
@@ -24,9 +24,28 @@ const navLinks: NavLinkType[] = [
 ];
 
 function Header() {
+    useEffect(() => {
+        window.addEventListener("scroll", isSticky);
+        return () => {
+            window.removeEventListener("scroll", isSticky);
+        };
+    }, []);
+    const isSticky = (e: Event) => {
+        const header = document.querySelector(".header-section");
+        const scrollTop = window.scrollY;
+        scrollTop >= 250
+            ? header!.classList.add("is-sticky")
+            : header!.classList.remove("is-sticky");
+    };
+
     return (
-        <header className="text-center p-2">
-            <p className="text-3xl font-semibold">bduck.dev</p>
+        <header className="header-section w-full h-24 text-center p-12 flex items-center justify-between lg:justify-evenly">
+            <Link
+                href="/"
+                className="hover:text-red-500 transition-colors text-xl lg:text-3xl font-semibold"
+            >
+                bduck.dev
+            </Link>
             <HorizontalMenu links={navLinks} />
         </header>
     );

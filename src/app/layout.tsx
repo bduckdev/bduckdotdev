@@ -17,7 +17,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="min-h-[100%]">
+        <html lang="en">
             <head>
                 <link
                     rel="stylesheet"
@@ -25,7 +25,7 @@ export default function RootLayout({
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
                 />
             </head>
-            <body className={inter.className}>
+            <body style={inter.style}>
                 <Header />
                 {children}
                 <Footer />

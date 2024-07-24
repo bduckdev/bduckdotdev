@@ -48,14 +48,12 @@ const footerLinks: Link[] = [
 ];
 export default function Footer() {
     return (
-        <footer className="absolute left-0 bottom-0 w-full h-12 lg:h-24">
-            <div className="bg-black w-screen h-24 p-8 flex justify-center gap-4">
-                {footerLinks.map((link) => (
-                    <Link href={link.href} key={link.name} className="">
-                        {link.icon}
-                    </Link>
-                ))}
-            </div>
+        <footer className="bg-black w-screen h-16 p-8 flex justify-center items-center gap-4 fixed left-0 bottom-0 ">
+            {footerLinks.map((link) => (
+                <Link href={link.href} key={link.name} className="">
+                    {link.icon}
+                </Link>
+            ))}
         </footer>
     );
 }
