@@ -7,14 +7,18 @@ export type NavLinkType = {
 
 interface HorizontalMenuProps {
     links: NavLinkType[];
+    className?: string;
 }
-export default function HorizontalMenu({ links }: HorizontalMenuProps) {
+export default function HorizontalMenu({
+    links,
+    className,
+}: HorizontalMenuProps) {
     return (
-        <ul className="flex justify-center flex-wrap">
+        <ul className={"flex justify-center flex-wrap gap-3 " + className}>
             {links.map((link) => (
-                <li key={link.title}>
+                <li key={link.title} className="">
                     <Link
-                        className="btn btn-ghost font-mono text-[.5rem] lg:text-lg"
+                        className="hover:text-red-500 transition-colors text-[.5rem] lg:text-lg font-semibold"
                         href={link.href}
                     >
                         {link.title}
