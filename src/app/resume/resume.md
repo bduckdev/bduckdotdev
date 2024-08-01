@@ -1,6 +1,3 @@
----
-title: resume
----
 #### Brennan Duck
 
 Full-stack Web Developer
@@ -15,7 +12,7 @@ Full-stack developer with 2+ years of freelance experience, specializing in buil
 #### Technical Skills
 
 JavaScript, TypeScript, Go, JavaScript Frameworks, React, Bun, Node, NextJs,
-Svelte,
+Svelte, WordPress,
 Git/GitHub, Turso, MongoDB, SQL, SQLite, TailwindCSS, GraphQL,tRPC, Prisma, HTML, CSS, REST,
 T3 Stack, MERN, Linux/Unix
 
@@ -33,7 +30,7 @@ conversation."_
 - End-to-end type-safety via Prisma, tPRC, and TypeScript
 - Authentication via NextAuth.js
 - Payment Integration via Stripe
-- Self-hosted SQL Database
+- Self-hosted PostgreSQL Database
 - Custom AI model based on Llama 3 made to simulate human conversation.
 
 **Watermelon King** - [Frontend](link/to/frontend) | [Demo](link/to/demo)
@@ -61,12 +58,13 @@ client._
 
 _Web Developer_
 
-- Built secure,modern, and maintainable websites for local businesses and
-  charities using modern frameworks like NextJS and Svelte. This includes event
-  pages setup integrated with reminders via text magic to increase attendance
-  and a simple CMS so that the client can easily add images and posts to the
-  site via a simple graphical interface.
-- Created performant lead generation pages for a local insurance agency and
+- Built modern, maintainable, and SEO-friendly event pages for local businesses and
+  charities using modern frameworks like NextJS.
+  - Increased attendance by between 25 and 80%.
+  - This was accomplished primarily via text reminders to increase attendance
+    and a simple CMS so that the client can easily add images and posts to the
+    site via a simple graphical interface.
+- Created performant lead generation pages with WordPress for a local insurance agency and
   integrated them manually with necessary APIs. This resulted in a savings of
   roughly $30 per lead on approximately 125 daily leads generated.
 - Effectively communicated technical complex technical concepts to non-technical
@@ -74,7 +72,7 @@ _Web Developer_
 
 ###### Previous experience
 
-**Self-employed contracted through various companies** | 09/2020 - 11/2022
+**Self-employed, contracted through various companies** | 09/2020 - 11/2022
 
 _Insurance Agent/Sales Manager_
 
@@ -90,4 +88,3 @@ TripleTen (Previously Practicum) by Yandex | _Software Engineering Program_
 
 University of Central Florida | _Bachelors of Computer Science (incomplete)_
 | Attended from 2018 - 2020
-

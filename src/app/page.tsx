@@ -1,15 +1,29 @@
 import HorizontalMenu, { NavLinkType } from "@/components/HorizontalMenu";
-import { ArrowBigDown, ArrowBigUp } from "lucide-react";
+import {
+    ArrowBigDown,
+    ArrowBigUp,
+    FolderGit2,
+    LucideIcon,
+    MessageSquareMore,
+} from "lucide-react";
 import Link from "next/link";
+import { ReactNode } from "react";
 
-const heroLinks: NavLinkType[] = [
+type HeroNavLinkType = {
+    href: string;
+    title: string;
+    icon: ReactNode;
+};
+const heroLinks: HeroNavLinkType[] = [
     {
         href: "/portfolio",
         title: "my projects",
+        icon: <FolderGit2 size={32} />,
     },
     {
         href: "/contact",
         title: "contact me",
+        icon: <MessageSquareMore size={32} />,
     },
 ];
 
@@ -28,16 +42,15 @@ export default function Home() {
                             <p className="font-mono">want to learn more?</p>
                             <ul className="mx-auto flex justify-center items-center pt-6 gap-8">
                                 {heroLinks.map((link) => (
-                                    <li
-                                        key={link.title}
-                                        className=""
-                                    >
+                                    <li key={link.title} className="">
                                         <Link
                                             className="hover:text-red-500 text-[1rem] lg:text-lg font-semibold flex flex-col justify-center items-center"
                                             href={link.href}
                                         >
-                                            <ArrowBigDown size={50} />
-                                            <span>{link.title}</span>
+                                            {link.icon}
+                                            <span className="underline underline-offset-2">
+                                                {link.title}
+                                            </span>
                                         </Link>
                                     </li>
                                 ))}

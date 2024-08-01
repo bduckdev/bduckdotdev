@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cat ./src/app/resume/resume.md | md-to-pdf > ./public/resume.pdf && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,8 +15,10 @@
     "@prisma/client": "^5.12.1",
     "@tailwindcss/typography": "^0.5.13",
     "@types/mdx": "^2.0.13",
+    "cat": "^0.2.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.368.0",
+    "md-to-pdf": "^5.2.4",
     "next": "14.2.0",
     "next-mdx-remote": "^5.0.0",
     "react": "^18",
