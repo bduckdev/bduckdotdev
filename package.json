@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cat ./src/app/resume/resume.md | md-to-pdf > ./public/resume.pdf && next build",
+    "compile": "cat ./src/app/resume/resume.md | md-to-pdf > ./public/resume.pdf",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
