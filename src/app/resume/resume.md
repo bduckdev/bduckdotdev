@@ -1,9 +1,9 @@
 ---
 geometry:
-- top=2.5mm
-- bottom=2.5mm
-- left=2.5mm
-- right=2.5mm
+  - top=2.5mm
+  - bottom=2.5mm
+  - left=2.5mm
+  - right=2.5mm
 fontsize: 10pt
 header-includes: |
   \usepackage{paralist}
@@ -69,16 +69,13 @@ _Web Developer_
 - Effectively communicated technical complex technical concepts to non-technical
   clients/prospects.
 
-**TripleTen Externship Program** | March 2024 - May 2024
+**SlopGoblins NPO** | March 2024 - May 2024
 
 _Software Engineer_
 
-- Built modern, maintainable, and SEO-friendly event pages for local businesses and
-- Created performant lead generation pages with WordPress for a local insurance agency and
-  integrated them manually with necessary APIs. This resulted in a savings of
-  roughly $30 per lead on approximately 125 daily leads generated.
-- Effectively communicated technical complex technical concepts to non-technical
-  clients/prospects.
+- Built a reusable library of over 30 form components using React and TailwindCSS.
+- Implemented backend integration with Amazon S3 for efficient file storage and fetching.
+- Created a performant search page using the aforementioned library so that users could easily filter through and search for movies.
 
 ##### Previous experience
 
