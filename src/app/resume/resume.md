@@ -17,12 +17,12 @@ header-includes: |
 
 _**Full-stack Web Developer**_
 
-[LinkedIn](https://google.com) | [GitHub](https://github.com/bduckdev)
+[LinkedIn](https://linkedin.com/in/bduckdev) | [GitHub](https://github.com/bduckdev)
 | [Portfolio](https://github.com/bduckdev) | +1-941-730-0886 | Knoxville, TN
 
 ## Summary
 
-Full-stack developer with 2+ years of freelance experience, specializing in building modern web applications using React, NextJS, and TypeScript. Passionate about creating efficient and scalable solutions, with a proven track record of delivering high-quality projects for clients.
+Full-stack developer with 2+ years of freelance experience and industry experience as a full-stack developer currently pursuing a bachelor's degree in Computer Science.
 
 ### Technical Skills
 
@@ -56,6 +56,14 @@ _Idle clicker game with a frontend built in Svelte and a backend in Go._
 - Buil complex client-side functionality in TypeScript.
 
 ### Experience
+
+**Duck Family Dental** | 2025 - Current
+
+_Lead Developer_
+
+- Created a modern, performant, SEO-friendly website to attract patients using SvelteKit and deployed in a custom cloud environment.
+- Improved patient retention by building messaging pipelines.
+- Saved thousands of dollars yearly by building integrations to replace paid services.
 
 **Freelance** | 2022 - Current
 
@@ -93,5 +101,11 @@ _Insurance Agent/Sales Manager_
 **TripleTen (Previously Practicum) by Yandex** | _Software Engineering Program_
 | **Graduated May 2024**
 
-**University of Central Florida** | _Bachelors of Computer Science_
-| **Attended from 2018 - 2020**
+- Learned the basics of Node, Express, HTML, and CSS.
+
+**Pellissippi State Community College** | _Bachelors of Computer Science_
+| **Currently Attending 2025**
+
+- Taken classes on basic data structures, algorithms, etc.
+- Planned transfer to UT Knox in Summer 2026
+- 3.69 GPA
