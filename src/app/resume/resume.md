@@ -1,9 +1,9 @@
 ---
 geometry:
-  - top=2.5mm
-  - bottom=2.5mm
-  - left=2.5mm
-  - right=2.5mm
+  - top=0.5mm
+  - bottom=0.5mm
+  - left=0.5mm
+  - right=0.5mm
 fontsize: 10pt
 header-includes: |
   \usepackage{paralist}
@@ -18,52 +18,46 @@ header-includes: |
 _**Full-stack Web Developer**_
 
 [LinkedIn](https://linkedin.com/in/bduckdev) | [GitHub](https://github.com/bduckdev)
-| [Portfolio](https://github.com/bduckdev) | +1-941-730-0886 | Knoxville, TN
+| [Portfolio](https://bduck.dev/portfolio) | +1 (941) 730-0886 | Knoxville, TN
 
 ## Summary
 
-Full-stack developer with 2+ years of freelance experience and industry experience as a full-stack developer currently pursuing a bachelor's degree in Computer Science.
+Full-stack developer with 3+ years of combined professional and freelance experience building performant, modern web applications. Skilled in full lifecycle development, from architecture to deployment, and currently pursuing a B.S. in Computer Science.
 
 ### Technical Skills
 
-JavaScript, TypeScript, Go, JavaScript Frameworks, React, Bun, Node, NextJs,
-Svelte, WordPress,
-Git/GitHub, Turso, MongoDB, SQL, SQLite, TailwindCSS, GraphQL,tRPC, Prisma, HTML, CSS, REST,
-T3 Stack, MERN, Linux/Unix
+- Languages: TypeScript, JavaScript, Golang, HTML, CSS
+- Frameworks/Libraries: Svelte, Next.js, React, Bun, Node, Express, Elysia, Expo
+- Databases/ORMs: PostgreSQL, MySQL, Prisma, GORM, MongoDB, Mongoose
+- Tools and Platforms: Git/GitHub, Linux/Unix, GraphQL, tRPC, REST APIs, Docker
 
 ### Technical Projects
 
-**FwendAI** - (Project is closed-source, repo available upon request) | [Demo](link/to/demo)
-| [Site](link/to/site) - 03/2024
+**Duck Family Dental** - (Project is closed-source, repo available upon request) | [Site](https://duckfamilydental.com) - 03/2025
 
-_Full-stack AI chat companion app built with NextJS, featuring
-a modern UI, end-to-end type-safety, authentication, and a custom AI model based
-on Llama 3. Delivered a seamless user experience for simulating human
-conversation."_
+_Modern website built using SvelteKit and TailwindCSS, deployed on cloud in custom docker container_
 
-- Created a modern UI using NextJS
-- End-to-end type-safety via Prisma, tPRC, and TypeScript
-- Implemented authentication via Auth.js, and payments via Stripe.
-- Trained an AI model based on Llama 3 to better simulate human conversation.
+- SEO-friendly website to assist in patient acquisition for a dental practice.
+- Deployed in a self-hosted cloud environment with git workflows for handling updates as they are pushed to the repo.
 
-**Watermelon King** - [Frontend](link/to/frontend) | [Demo](link/to/demo)
-| [Site](link/to/site) - 08/2023
+**Watermelon King** - [Repo](https://github.com/bduckdev/watermelon-king)
+| [Site](https://bduck.dev/portfolio/watermelon-king) - 08/2023
 
 _Idle clicker game with a frontend built in Svelte and a backend in Go._
 
 - Created a responsive UI in Svelte that is suitable for mobile and desktop.
 - Wrote a performant backend in Go for handling user authentication and data retrieval
-- Buil complex client-side functionality in TypeScript.
+- Built complex client-side functionality in TypeScript.
 
 ### Experience
 
 **Duck Family Dental** | 2025 - Current
 
-_Lead Developer_
+_Sole Web Developer_
 
-- Created a modern, performant, SEO-friendly website to attract patients using SvelteKit and deployed in a custom cloud environment.
+- Increased site traffic and patient leads by launching a fully-responsive, SEO-optimized website using SvelteKit and TailwindCSS.
 - Improved patient retention by building messaging pipelines.
-- Saved thousands of dollars yearly by building integrations to replace paid services.
+- Saved thousands of dollars yearly by building custom integrations to replace paid services.
 
 **Freelance** | 2022 - Current
 
@@ -74,10 +68,10 @@ _Web Developer_
 - Created performant lead generation pages with WordPress for a local insurance agency and
   integrated them manually with necessary APIs. This resulted in a savings of
   up to $30 per lead on approximately 125 daily leads generated.
-- Effectively communicated technical complex technical concepts to non-technical
+- Effectively communicated complex technical concepts to non-technical
   clients/prospects.
 
-**SlopGoblins NPO** | March 2024 - May 2024
+**SlopGoblins NPO (non-profit media project)** | March 2024 - May 2024
 
 _Software Engineer_
 
@@ -85,27 +79,18 @@ _Software Engineer_
 - Implemented backend integration with Amazon S3 for efficient file storage and fetching.
 - Created a performant search page using the aforementioned library so that users could easily filter through and search for movies.
 
-##### Previous experience
-
-**Self-employed, contracted through various companies** | 09/2020 - 11/2022
-
-_Insurance Agent/Sales Manager_
-
-- Closed roughly $48,000 APV of insurance policies per month.
-- Maintained a book of business that featured over 200 individual clients as
-  well as multiple businesses.
-- Led and mentored a team of 7 sales people to achieve an average volume of $80,000 weekly
-
 ### Education
+
+**Western Governors University** | _Bachelors of Computer Science_
+| **Graduating 2026**
+
+- Coursework in data structures, algorithms, and software engineering fundamentals
+- Supplemented with courses in mathematics, natural sciences, and computer systems
 
 **TripleTen (Previously Practicum) by Yandex** | _Software Engineering Program_
 | **Graduated May 2024**
 
-- Learned the basics of Node, Express, HTML, and CSS.
-
-**Pellissippi State Community College** | _Bachelors of Computer Science_
-| **Currently Attending 2025**
-
-- Taken classes on basic data structures, algorithms, etc.
-- Planned transfer to UT Knox in Summer 2026
-- 3.69 GPA
+- Completed intensive training in modern web development in HTML, CSS, and JavaScript
+- Trained in front-end frameworks such as React with additional training in design patterns such as BEM.
+- Trained in back-end technologies including Node, Express, as well as both relational and non-relational databases.
+- Provided peer mentoring as a senior student, reinforcing mastery of front-end and back-end concepts.
