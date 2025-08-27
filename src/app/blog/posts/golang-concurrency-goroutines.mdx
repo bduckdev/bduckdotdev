@@ -239,5 +239,7 @@ func fetchPokemonConcurrently(name string, ch chan<- Pokemon, wg *sync.WaitGroup
 }
 ```
 
-By splitting apart the work across multiple Goroutines, we can split the work into different smaller tasks, which is overkill in the best way for a simple task like fetching data from an API. Check out the repo [here](https://github.com/bduckdev/fetch-pokemon). Follow my [LinkedIn](https://linkedin.com/in/bduckdev). If you want to reach me, shoot me an email at <u>brennantduck@gmail.com</u>
+By splitting apart the work across multiple Goroutines, we can split the work into different smaller tasks. While this is complete overkill for a simple task like fetching a small amount of data from an API in a toy app or demo, it can be completely game-changing for much of the I/O bound work we do as web developers. 
+
+Check out the repo [here](https://github.com/bduckdev/fetch-pokemon). Follow my [LinkedIn](https://linkedin.com/in/bduckdev). If you want to reach me, shoot me an email at <u>brennantduck@gmail.com</u>
 
