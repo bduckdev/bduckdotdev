@@ -49,8 +49,8 @@ export default function Page({ params }: any) {
                 <Image
                     className="w-1/2 h-48 object-contain"
                     src={props.frontMatter.image}
-                    width={1000}
-                    height={1000}
+                    width={350}
+                    height={350}
                     alt=""
                 />
             </div>
