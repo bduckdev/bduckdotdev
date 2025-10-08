@@ -1,9 +1,9 @@
 ---
 geometry:
-  - top=0.5mm
-  - bottom=0.5mm
-  - left=0.5mm
-  - right=0.5mm
+  - top=0.25mm
+  - bottom=0.25mm
+  - left=0.25mm
+  - right=0.25mm
 fontsize: 10pt
 header-includes: |
   \usepackage{paralist}
@@ -22,7 +22,7 @@ _**Full-stack Web Developer**_
 
 ## Summary
 
-Full-stack developer with 3+ years of combined professional and freelance experience building performant, modern web applications. Skilled in full lifecycle development, from architecture to deployment, and currently pursuing a B.S. in Computer Science.
+Full-stack developer with 4+ years of combined professional and freelance experience building performant, modern web applications. Skilled in full lifecycle development, from architecture to deployment, and currently pursuing a B.S. in Computer Science.
 
 ### Technical Skills
 
@@ -39,7 +39,6 @@ _Modern website built using SvelteKit and TailwindCSS, deployed in a custom Dock
 
 - SEO-friendly website to assist in patient acquisition for a dental practice.
 - Deployed in a self-hosted cloud environment with git workflows for handling updates as they are pushed to the repo.
-- Built custom components for things such as Google reviews.
 
 **Watermelon King** - [Repo](https://github.com/bduckdev/watermelon-king)
 | [Site](https://bduck.dev/portfolio/watermelon-king) - 08/2023
