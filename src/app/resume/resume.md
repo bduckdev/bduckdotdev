@@ -39,6 +39,7 @@ _Modern website built using SvelteKit and TailwindCSS, deployed in a custom Dock
 
 - SEO-friendly website to assist in patient acquisition for a dental practice.
 - Deployed in a self-hosted cloud environment with git workflows for handling updates as they are pushed to the repo.
+- Built custom components for things such as Google reviews.
 
 **Watermelon King** - [Repo](https://github.com/bduckdev/watermelon-king)
 | [Site](https://bduck.dev/portfolio/watermelon-king) - 08/2023

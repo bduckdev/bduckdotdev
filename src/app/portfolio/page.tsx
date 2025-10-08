@@ -40,8 +40,8 @@ export default function PortfolioPage() {
                                 </p>
                             </div>
                             <Image
-                                height={500}
-                                width={500}
+                                height={250}
+                                width={250}
                                 src={post.meta.image}
                                 alt=""
                                 className="size-24 lg:size-48 object-cover"
