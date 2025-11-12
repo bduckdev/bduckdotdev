@@ -1,0 +1,11 @@
+@font-face {
+  font-family: Geist;
+  src: url(/public/fonts/Geist/Geist-VariableFont_wght.ttf);
+}
+
+:root {
+  background-color: #00468b;
+  color: white;
+  font-weight: 900;
+  font-family: Geist;
+}
