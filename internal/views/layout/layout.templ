@@ -8,9 +8,17 @@ templ Root(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link rel="stylesheet" href="/public/styles.css"/>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+			<script src="/public/htmx.min.js"></script>
 			<title>bduck - { title }</title>
 		</head>
-		<body class="bg-[#1E5186] text-white flex flex-col overflow-hidden h-screen">
+		<body
+			hx-boost="true"
+			hx-target="#main"
+			hx-select="main"
+			hx-swap="outerHTML"
+			hx-push-url="true"
+			class="bg-[#1E5186] text-white flex flex-col overflow-hidden h-screen"
+		>
 			@Header()
 			@Content() {
 				{ children... }
@@ -22,6 +30,9 @@ templ Root(title string) {
 
 templ Content() {
 	<main
+		id="main"
+		role="main"
+		tabindex="-1"
 		class="mx-auto flex-1 overflow-y-auto w-full"
 	>
 		{ children... }
