@@ -19,6 +19,7 @@ func New() *chi.Mux {
 	r.Get("/{dir}/{slug}", handlers.Create(log, handlers.PostHandler))
 	r.Get("/about", handlers.Create(log, handlers.AboutHandler))
 	r.Get("/resume", handlers.Create(log, handlers.ResumeHandler))
+	r.Get("/healthz", handlers.Create(log, handlers.HealthCheckHandler))
 
 	r.Handle("/public/*", http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
 
