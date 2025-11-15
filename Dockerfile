@@ -21,18 +21,18 @@ RUN npx @tailwindcss/cli -i ./public/input.css -o ./public/styles.css --minify
 RUN templ generate
 RUN go build -o /app/bin/main ./cmd/api/main.go
 
-# FROM gcr.io/distroless/base-debian12
-#
-#WORKDIR /app
-#
-#COPY --from=build /app/bin/main ./main
-#COPY --from=build /app/public ./public
-#COPY --from=build /app/content ./content
+FROM gcr.io/distroless/base-debian12
+
+WORKDIR /app
+
+COPY --from=build /app/bin/main ./main
+COPY --from=build /app/public ./public
+COPY --from=build /app/content ./content
 
 EXPOSE 3000
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD curl -f http://localhost:3000/healthz || exit 1
+#HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD curl -f http://localhost:3000/healthz || exit 1
 
-#CMD ["./main"]
-CMD ["./bin/main"]
+CMD ["./main"]
+#CMD ["./bin/main"]
 
