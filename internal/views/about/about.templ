@@ -1,0 +1,32 @@
+package about
+
+import "bduckdotdev/internal/views/layout"
+
+templ Page() {
+	@layout.Root("About") {
+		<section class="my-8 flex gap-4 items-center mx-auto max-w-prose px-2">
+			<img src="/public/img/cat_crying.png" alt="headshot" width="150" height="150" class="rounded-4xl object-cover max-w-1/3"/>
+			<div class="">
+				<h1 class="text-3xl font-semibold tracking-tight">Brennan Duck</h1>
+				<ul>
+					<li>
+						<a class="hover:text-slate-500 underline underline-offset-2" href="/resume">Resume</a>
+					</li>
+					<li>
+						<a class="hover:text-slate-500 underline underline-offset-2" href="https://linkedin.com/in/bduckdev">LinkedIn</a>
+					</li>
+					<li>
+						<a class="hover:text-slate-500 underline underline-offset-2" href="https://github.com/bduckdev">GitHub</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="mx-auto prose prose-invert md:prose-lg my-10 px-2">
+			<p>
+				<strong>I’m Brennan, a backend-leaning developer who likes building things from first principles.</strong>
+				I spend most of my time working with Go, C, as well as modern web frameworks like Svelte and React. I have a habit of building projects that get a little too ambitious: interpreters, static site generators, distributed-systems toys, and whatever else seems fun to understand deeply.
+				I’m happiest when I’m learning how something actually works under the hood. Whether that’s writing a Redis-like datastore from scratch, designing a small web server in C, or shipping full features end-to-end. I care about clean mental models, minimal dependencies, and code you can reason about at 2AM.
+			</p>
+		</section>
+	}
+}

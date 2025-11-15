@@ -1,0 +1,253 @@
+---
+title: "Fetching Data from PokéAPI Concurrently in Go"
+date: August 26th, 2025
+description: Learning concurrency using PokéAPI and Goroutines
+image: /public/img/blog/golang-concurrency-goroutines.png
+---
+
+## Concurrency is Cool
+
+A reality that I've faced throughout my adult life is that we humans are actually relatively poor at multitasking, no matter how hard we try to gaslight ourselves into thinking we aren't. Fortunately, modern computers _are_ actually great at it, which leads us to the magic of concurrency, and perhaps one of its most notable implementations: Golang's goroutines.
+
+## How does it work?
+
+At a high level, concurrency is about taking one big job that would usually be done step by step and breaking it into smaller jobs that can run at the same time. It’s the difference between one mechanic working alone and a full pit crew tackling everything at once.
+
+In Golang, this sort of behavior is shockingly simple to achieve by using three key components: channels, goroutines, and wait groups.
+
+### Goroutines
+
+These are the threads that Go can manage for you. They can easily be executed by adding the `go` keyword in front of a function call.
+
+```golang
+go MyFunc(foo, ch, &wg)
+```
+
+### Channels
+
+Channels are how your data gets places. They're what the docs call a _typed conduit_. I think a good way to visualize it is as a literal pipe for your data.
+
+```golang
+ch := make(chan int)
+
+// the data always flows in the direction of the arrow.
+ch <- v    // Send v to channel ch.
+v := <-ch  // Receive from ch and assign value to v.
+```
+
+### Wait Groups
+
+Wait groups are Go’s way of making sure all your goroutines finish their work before the program moves on. Think of them as the manager with a checklist: every time you start a goroutine, you add one to the list; every time one finishes, it checks itself off. Only when the list is empty can the program continue.
+
+```golang
+var wg sync.WaitGroup
+
+wg.Add(1)                 // tell the wait group we’re starting a goroutine
+go func() {
+    defer wg.Done()       // mark this goroutine as finished when done
+    MyFunc(foo, ch)
+}()
+
+wg.Wait()                 // block until all goroutines are done
+```
+
+## Let's build something
+
+Now that I've finished vomitting documentation at you, let's invent a problem to solve. As a fan of Pokemon, there are few fictional creatures I like more than Eevee and its various evolutions, but there are so many now that I have trouble picking a favorite. I should pull there data from PokeAPI to help me decide. First let's lay some ground work.
+
+```golang
+const API_URL string = "https://pokeapi.co/api/v2/pokemon/"
+
+type Pokemon struct {
+	Name   string `json:"name"`
+	Height int    `json:"height"`
+	Weight int    `json:"weight"`
+}
+```
+
+Ok, now that we have that out of the way, let's write a simple function to fetch the data from PokeAPI.
+
+```golang
+ func fetchPokemon(name string) Pokemon {
+	url := API_URL + name
+	res, err := http.Get(url)
+	if err != nil {
+		panic(err)
+	}
+	defer res.Body.Close()
+
+	var p Pokemon
+	if err := json.NewDecoder(res.Body).Decode(&p); err != nil {
+		panic(err)
+	}
+
+	return p
+}
+```
+
+Now we just have to call it in main() and we'll be cooking. this seems simple enough.
+
+```golang
+start := time.Now()
+pokemon := []string{"vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon", "eevee"}
+// non-concurrent
+for _, name := range pokemon {
+	p := fetchPokemon(name)
+	fmt.Printf("name: %s\nheight: %d\nweight: %d\n", p.Name, p.Height, p.Weight)
+}
+fmt.Println("Fetching without concurrency took ", time.Since(start))
+```
+
+Let's see how long it takes to grab our Pokemon data.
+
+```
+OUTPUT:
+Fetching without concurrency took  853.684333ms
+```
+
+This is unacceptable. I can't afford to wait 853ms, that's almost a full second. Time is money after all. Let's make this better by using goroutines. Fortunately, the change is not very hard in this case. All we have to do is slot in that `wg.Done()` so that our function knows to mark the goroutine as done when it's finished. Aside from that, we need to have our function populate that nifty channel we talked about earlier with our data we fetched instead of just returning it like before.
+
+```golang
+func fetchPokemonConcurrently(name string, ch chan<- Pokemon, wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	url := API_URL + name
+	res, err := http.Get(url)
+	if err != nil {
+		panic(err)
+	}
+	defer res.Body.Close()
+
+	var p Pokemon
+	if err := json.NewDecoder(res.Body).Decode(&p); err != nil {
+		panic(err)
+	}
+
+	ch <- p
+}
+```
+
+So now that we updated our functions, how are we going to invoke it? While this is perhaps less intuitive than updating the above function, it still isn't too bad.
+
+```golang
+// concurrent
+pokemon := []string{"vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon", "eevee"}
+start = time.Now()
+// make the channel for our data, and the wait group to manage the goroutine
+ch := make(chan Pokemon)
+var wg sync.WaitGroup
+// iterate over the
+for _, name := range pokemon {
+	wg.Add(1) // tell the wait group that we're starting a goroutine
+	go fetchPokemonConcurrently(name, ch, &wg) // here we use the "go" keyword to signal that it's going into our goroutine.
+}
+go func() {
+    // once our wait groups are finished
+	wg.Wait()
+    // close the channel
+	close(ch)
+}()
+
+// now that our channel is closed and our data is here, all we have to do is print the results.
+for res := range ch {
+	fmt.Printf("name: %s\nheight: %d\nweight: %d\n", res.Name, res.Height, res.Weight)
+}
+fmt.Println("Fetching with concurrency took ", time.Since(start))
+```
+
+Let's check our output:
+
+```
+OUTPUT:
+Fetching with concurrency took  102.839833ms
+```
+
+Ah yes, much better. By leveraging goroutines, we were able to handle our request roughly 8x faster.
+Here's the full code:
+
+```golang
+// fetching data from pokeapi concurrently and non-concurrently.
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"sync"
+	"time"
+)
+
+const API_URL string = "https://pokeapi.co/api/v2/pokemon/"
+
+type Pokemon struct {
+	Name   string `json:"name"`
+	Height int    `json:"height"`
+	Weight int    `json:"weight"`
+}
+
+func main() {
+	start := time.Now()
+	pokemon := []string{"vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon", "eevee"}
+	// non-concurrent
+	for _, name := range pokemon {
+		p := fetchPokemon(name)
+		fmt.Printf("name: %s\nheight: %d\nweight: %d\n", p.Name, p.Height, p.Weight)
+	}
+	fmt.Println("Fetching without concurrency took ", time.Since(start))
+	// concurrent
+	start = time.Now()
+	ch := make(chan Pokemon)
+	var wg sync.WaitGroup
+	for _, name := range pokemon {
+		wg.Add(1)
+		go fetchPokemonConcurrently(name, ch, &wg)
+	}
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
+
+	for res := range ch {
+		fmt.Printf("name: %s\nheight: %d\nweight: %d\n", res.Name, res.Height, res.Weight)
+	}
+	fmt.Println("Fetching with concurrency took ", time.Since(start))
+}
+
+func fetchPokemon(name string) Pokemon {
+	url := API_URL + name
+	res, err := http.Get(url)
+	if err != nil {
+		panic(err)
+	}
+	defer res.Body.Close()
+
+	var p Pokemon
+	if err := json.NewDecoder(res.Body).Decode(&p); err != nil {
+		panic(err)
+	}
+
+	return p
+}
+
+func fetchPokemonConcurrently(name string, ch chan<- Pokemon, wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	url := API_URL + name
+	res, err := http.Get(url)
+	if err != nil {
+		panic(err)
+	}
+	defer res.Body.Close()
+
+	var p Pokemon
+	if err := json.NewDecoder(res.Body).Decode(&p); err != nil {
+		panic(err)
+	}
+
+	ch <- p
+}
+```
+
+By splitting apart the work across multiple Goroutines, we can split the work into different smaller tasks. While this is complete overkill for a simple task like fetching a small amount of data from an API in a toy app or demo, it can be completely game-changing for much of the I/O bound work we do as web developers.
+
+Check out the repo [here](https://github.com/bduckdev/fetch-pokemon). Follow my [LinkedIn](https://linkedin.com/in/bduckdev). If you want to reach me, shoot me an email at <u>brennantduck@gmail.com</u>

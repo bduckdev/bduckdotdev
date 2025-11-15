@@ -3,9 +3,14 @@
 This is the code for my personal website which can be found
 [here](https://bduck.dev)
 
+## Features
+
+- Projects page with ... projects
+- Blogs page with... blog posts
+- resume page
+- home page with 2 sentences
+- about page
+
 ## TODO
 
-[] Make portfolio page. (can be identical to blogs page)
-[] Make page for each project. (Probably MDX in new folder like blogs)
-[] Add contact page
-[] Make resume display properly inline
+-[ ] proper post sorting. maybe need to use real date info to properly index posts

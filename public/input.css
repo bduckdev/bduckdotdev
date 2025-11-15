@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: Geist;
+  src: url(/public/fonts/Geist/Geist-VariableFont_wght.ttf);
+}
+
+.sep {
+}
+
+:root {
+  font-family: Geist;
+}

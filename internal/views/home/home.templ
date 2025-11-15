@@ -1,0 +1,18 @@
+package home
+
+import "bduckdotdev/internal/views/layout"
+
+templ Page() {
+	@layout.Root("Home") {
+		<section class="container mx-auto p-2 flex flex-col items-center gap-4 py-28 text-center">
+			<h1 class="font-semibold text-5xl tracking-tight">Hello there.</h1>
+			<p>My name is Brennan Duck. I'm an independent dev. I do Go and JavaScript mostly.</p>
+			<a class="text-xl underline hover:text-slate-500" href="/projects">
+				check out my projects
+			</a>
+			<a class="text-xl underline hover:text-slate-500" href="/blog">
+				read my blog 
+			</a>
+		</section>
+	}
+}

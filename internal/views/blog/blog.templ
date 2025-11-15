@@ -1,0 +1,19 @@
+package blog
+
+import (
+	"bduckdotdev/internal/content"
+	"bduckdotdev/internal/views/layout"
+	"bduckdotdev/internal/views/ui"
+)
+
+templ Page(posts []content.Post) {
+	@layout.Root("Blog") {
+		<section class="p-3 max-w-prose mx-auto">
+			<h1 class="text-3xl font-semibold tracking-tight">
+				My Blog Posts
+			</h1>
+			<p>my thoughts on various topics.</p>
+		</section>
+		@ui.PostsSection(posts, "blog")
+	}
+}

@@ -1,0 +1,27 @@
+package ui
+
+import (
+	"bduckdotdev/internal/content"
+	"path"
+)
+
+templ PostsSection(posts []content.Post, postType string) {
+	<section class="max-w-prose mx-auto">
+		for _, post := range posts {
+			@Card(post.Meta.Title, post.Meta.Description, post.Meta.Image, path.Join(postType, post.Slug))
+		}
+	</section>
+}
+
+templ Card(title string, description string, img string, link string) {
+	<div class="border-white rounded-md">
+		<div class="p-2 flex w-full md:w-3xl">
+			<img src={ img } height="200" width="200" class="object-cover rounded-md max-w-1/4 w-32 h-32" alt={ title }/>
+			<div class="px-4 flex flex-col justify-evenly">
+				<h2 class="font-semibold tracking-tight text-lg md:text-xl">{ title }</h2>
+				<p class="">{ description }</p>
+				<a href={ link } class="hover:text-slate-500 underline underline-offset-4 ">read more...</a>
+			</div>
+		</div>
+	</div>
+}

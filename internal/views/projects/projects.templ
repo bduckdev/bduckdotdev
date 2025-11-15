@@ -1,0 +1,17 @@
+package projects
+
+import "bduckdotdev/internal/views/layout"
+import "bduckdotdev/internal/views/ui"
+import "bduckdotdev/internal/content"
+
+templ Page(posts []content.Post) {
+	@layout.Root("Projects") {
+		<section class="p-3 max-w-prose mx-auto">
+			<h1 class="text-3xl font-semibold tracking-tight">
+				My Projects
+			</h1>
+			<p class="">quick showcase of my completed projects</p>
+		</section>
+		@ui.PostsSection(posts, "projects")
+	}
+}

@@ -1,0 +1,75 @@
+package layout
+
+templ Root(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/public/styles.css"/>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+			<title>bduck - { title }</title>
+		</head>
+		<body class="bg-[#1E5186] text-white flex flex-col overflow-hidden h-screen">
+			@Header()
+			@Content() {
+				{ children... }
+			}
+			@Footer()
+		</body>
+	</html>
+}
+
+templ Content() {
+	<main
+		class="mx-auto flex-1 overflow-y-auto w-full"
+	>
+		{ children... }
+	</main>
+}
+
+templ Header() {
+	<header class="flex justify-between px-2 py-2 items-center border-white w-full max-w-prose mx-auto">
+		<a href="/" class="text-2xl md:text-3xl font-semibold tracking-tight hover:text-slate-500 hover:scale-110 transition-all">
+			bduck.dev
+		</a>
+		<ul class="flex gap-2">
+			<li class="hover:text-slate-500 hover:scale-110 transition-all">
+				<a href="/projects" class="hover:text-slate-500 hover:underline underline-offset-4">
+					projects
+				</a>
+			</li>
+			<li class="hover:text-slate-500 hover:scale-110 transition-all">
+				<a href="/blog" class="hover:text-slate-500 hover:underline underline-offset-4">
+					blog
+				</a>
+			</li>
+			<li class="hover:text-slate-500 hover:scale-110 transition-all">
+				<a href="/about" class="hover:text-slate-500 hover:underline underline-offset-4">
+					about
+				</a>
+			</li>
+		</ul>
+	</header>
+}
+
+templ Footer() {
+	<footer class="flex py-2 justify-center bg-black w-full mt-2">
+		<ul class="flex gap-4 text-2xl ">
+			<li class="hover:text-slate-500 hover:scale-110 transition-all">
+				<a href="https://github.com/bduckdev" class="">
+					<i>
+						<i class="devicon-github-original"></i>
+					</i>
+				</a>
+			</li>
+			<li class="hover:text-slate-500 hover:scale-110 transition-all">
+				<a href="https://linkedin.com/in/bduckdev" class="">
+					<i>
+						<i class="devicon-linkedin-plain"></i>
+					</i>
+				</a>
+			</li>
+		</ul>
+	</footer>
+}

@@ -1,0 +1,12 @@
+package resume
+
+import "bduckdotdev/internal/views/layout"
+
+templ Page(body templ.Component) {
+	@layout.Root("Resume") {
+		<section class="prose prose-xl prose-invert my-6 mx-auto max-w-prose px-2">
+			<a class="hover:text-slate-500" href="/public/brennan-duck.pdf">Download PDF</a>
+			@body
+		</section>
+	}
+}

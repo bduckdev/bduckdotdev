@@ -2,8 +2,9 @@
 
 *_templ.go
 
-# tmp from air
+/bin
 /tmp
+
 # dependencies
 /node_modules
 /.pnp

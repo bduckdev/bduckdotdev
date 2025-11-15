@@ -1,0 +1,21 @@
+package post
+
+import "bduckdotdev/internal/content"
+import "bduckdotdev/internal/views/layout"
+
+templ Page(metadata content.Metadata, body templ.Component) {
+	@layout.Root(metadata.Title) {
+		<section class="flex flex-col md:flex-row items-center gap-4 my-4 mx-auto max-w-prose px-2">
+			<img class="max-w-full md:max-w-1/4 md:size-40 object-cover rounded-md" width="500" height="500" src={ metadata.Image }/>
+			<div class="flex flex-col justify-between gap-2 md:gap-4">
+				<h1 class="text-4xl font-semibold tracking-tight">{ metadata.Title }</h1>
+				<p>{ metadata.Description }</p>
+				<p class="italic">{ metadata.Date }</p>
+			</div>
+			<hr class="sep my-2 border-t border-slate-500"/>
+		</section>
+		<article class="prose max-w-prose mx-auto prose-invert my-4 marker:text-gray-500 px-2">
+			@body
+		</article>
+	}
+}
