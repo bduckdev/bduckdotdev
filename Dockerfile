@@ -17,7 +17,7 @@ RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
 COPY . .
 
-RUN npx @tailwindcss/cli -i ./public/input.css -o ./public/styles.css 
+RUN npx @tailwindcss/cli -i ./public/input.css -o ./public/styles.css --minify
 RUN templ generate
 RUN go build -o /app/bin/main ./cmd/api/main.go
 
