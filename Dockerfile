@@ -2,13 +2,22 @@ FROM golang:1.25.4-bookworm AS build
 
 WORKDIR /app
 
+RUN apt-get update && \
+    apt-get install -y nodejs npm && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN go install "github.com/a-h/templ/cmd/templ@latest"
+
 
 COPY go.mod go.sum ./
 RUN go mod download
 
+COPY package.json package-lock.json* ./
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
 COPY . .
 
+RUN npx @tailwindcss/cli -i ./public/input.css -o ./public/styles.css 
 RUN templ generate
 RUN go build -o /app/bin/main ./cmd/api/main.go
 
