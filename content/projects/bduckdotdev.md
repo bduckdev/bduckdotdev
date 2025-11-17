@@ -29,7 +29,7 @@ I built my website this way because I realized that it didn't require a level of
 
 ### Technologies Used
 
-(templ should be hear too but it's not in devicons)
+(templ should be here too but it's not in devicons)
 
 <div class="text-7xl lg:text-8xl grid grid-cols-3 mx-auto place-items-center w-full">
 <i class="devicon-go-original-wordmark"></i>
@@ -53,7 +53,7 @@ HTMX enabled a degree of polish that otherwise would not have been possible with
 
 ## Challenges
 
-An unfortunate side-effect of stepping out of the massive frontend ecosystems is that you actually have to think about how you want to build your application. I experienced problems that were in hindsight trivial, but genuinely tripped me up for a moment. For example, I spent a solid 30 minutes just trying to get tailwind to compile, only to realize that I was compiling tailwind after running `templ generate`, which meant the templates being generated didn't feature any of the new CSS. This isn't the sort of problem that should be a thing, but is somewhat enabled by an overreliance on frameworks that build everything for you.
+An unfortunate side-effect of stepping out of the massive frontend ecosystems is that you actually have to think about how you want to build your application. I experienced problems that were in hindsight trivial, but genuinely tripped me up for a moment. For example, I spent a solid 30 minutes just trying to get tailwind to compile, only to realize that I was compiling tailwind after running `templ generate`, which meant the templates being generated didn't feature any of the new CSS. This isn't the sort of problem that shouldn't be a thing, but is somewhat enabled by an overreliance on frameworks that build everything for you.
 
 ## Key Takeaways
 
