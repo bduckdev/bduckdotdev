@@ -9,26 +9,62 @@ templ Root(title string) {
 			<link rel="stylesheet" href="/public/styles.css"/>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
 			<script src="/public/scripts/htmx.min.js"></script>
-			<title>bduck - { title }</title>
+			{{ pageTitle := "bduck - " + title }}
+			<title>{ pageTitle }</title>
+			<!-- Primary Meta Tags -->
+			<meta name="title" content={ pageTitle }/>
+			<meta name="description" content="Personal site of Brennan Duck. Projects, blog posts, and thoughts on Go, systems programming, and building clean, minimal software."/>
+			<!-- Open Graph / Facebook -->
+			<meta property="og:type" content="website"/>
+			<meta property="og:url" content="https://bduck.dev/"/>
+			<meta property="og:title" content="Brennan Duck – Software Developer"/>
+			<meta property="og:description" content="Projects, blog posts, and thoughts on Go, HTMX, distributed systems, and software craft."/>
+			<meta property="og:image" content="https://bduck.dev/public/og/og-image.png"/>
+			<!-- Twitter / X -->
+			<meta name="twitter:card" content="summary_large_image"/>
+			<meta name="twitter:url" content="https://bduck.dev/"/>
+			<meta name="twitter:title" content="Brennan Duck – Software Engineer"/>
+			<meta name="twitter:description" content="Projects, blog posts, and thoughts on Go, systems programming, and building deliberate, minimal software."/>
+			<meta name="twitter:image" content="https://bduck.dev/pubblic/og/og-image.png"/>
+			<!-- Favicons -->
+			<link rel="icon" type="image/png" href="/public/favicon/favicon-blue.png"/>
+			<link rel="icon" type="image/png" href="/public/favicon/favicon-blue.png" media="(prefers-color-scheme: light)"/>
+			<link rel="icon" type="image/png" href="/public/favicon/favicon-white.png" media="(prefers-color-scheme: dark)"/>
+			<link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png"/>
+			<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon/32x32.png"/>
+			<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/16x16.png"/>
+			<!-- <link rel="manifest" href="/public/site.webmanifest"/> -->
+			<!-- Basic SEO -->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="robots" content="index, follow"/>
+			<meta name="theme-color" content="#1E5186"/>
+			<!-- canonical URL -->
+			<link rel="canonical" href="https://bduck.dev/"/>
 		</head>
-		<body
-			hx-boost="true"
-			hx-target="#main"
-			hx-select="main"
-			hx-swap="outerHTML"
-			hx-push-url="true"
-			class="bg-[#1E5186] text-white flex flex-col overflow-hidden h-screen"
-		>
-			@Header()
-			@Content() {
-				{ children... }
-			}
-			@Footer()
-		</body>
+		@body() {
+			{ children... }
+		}
 	</html>
 }
 
-templ Content() {
+templ body() {
+	<body
+		hx-boost="true"
+		hx-target="#main"
+		hx-select="main"
+		hx-swap="outerHTML"
+		hx-push-url="true"
+		class="bg-[#1E5186] text-white flex flex-col overflow-hidden h-screen"
+	>
+		@header()
+		@main() {
+			{ children... }
+		}
+		@footer()
+	</body>
+}
+
+templ main() {
 	<main
 		id="main"
 		role="main"
@@ -39,9 +75,9 @@ templ Content() {
 	</main>
 }
 
-templ Header() {
+templ header() {
 	<header class="flex justify-between px-2 py-2 items-center border-white w-full max-w-prose mx-auto">
-		<a href="/" class="text-2xl md:text-3xl font-semibold tracking-tight hover:text-slate-500 hover:scale-110 transition-all">
+		<a href="/" class=" text-2xl md:text-3xl font-semibold tracking-tight hover:text-slate-500 hover:scale-110 transition-all">
 			bduck.dev
 		</a>
 		<ul class="flex gap-2">
@@ -64,7 +100,7 @@ templ Header() {
 	</header>
 }
 
-templ Footer() {
+templ footer() {
 	<footer class="flex py-2 justify-center bg-black w-full mt-2">
 		<ul class="flex gap-4 text-2xl ">
 			<li class="hover:text-slate-500 hover:scale-110 transition-all">

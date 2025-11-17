@@ -21,4 +21,4 @@ Focused on being fast, simple, and server-driven by using Go, Templ, and HTMX.
 
 ## TODO
 
--[ ] Proper post sorting using real date metadata instead of naive string comparison.
+-[ ] Proper post sorting using real date metadata instead of naive string comparison. -[ ] Make html metadata a separate component so that page layout can have author metadata on blog post.
