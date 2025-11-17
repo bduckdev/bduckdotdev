@@ -1,0 +1,29 @@
+{
+  "name": "bduck.dev – Brennan Duck",
+  "short_name": "bduck.dev",
+  "description": "Personal site of Brennan Duck. Projects, blog posts, and thoughts on Go, systems programming, and building clean, minimal software.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1E5186",
+  "theme_color": "#1E5186",
+  "icons": [
+    {
+      "src": "/public/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/favicon/maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
