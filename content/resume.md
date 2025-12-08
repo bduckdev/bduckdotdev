@@ -1,11 +1,23 @@
 ---
 geometry:
-  - top=0.25mm
-  - bottom=0.25mm
-  - left=0.25mm
-  - right=0.25mm
-fontsize: 10pt
+  - top=5.00mm
+  - bottom=5.00mm
+  - left=3.00mm
+  - right=3.00mm
+fontsize: 11pt
+mainfont: "Geist"
+mainfontoptions:
+  - "ItalicFont=content/fonts/Geist-RegularItalic.otf"
+  - "SemiBoldFont=content/fonts/Geist-SemiBold.otf"
+  - "SemiBoldItalicFont=content/fonts/Geist-SemiBold.otf"
+  - "BoldFont=content/fonts/Geist-Bold.otf"
+  - "BoldItalicFont=content/fonts/Geist-BoldItalic.otf"
+  - "ExtraBoldFont=content/fonts/Geist-ExtraBold.otf"
+  - "ExtraBoldItalicFont=content/fonts/Geist-ExtraBoldItalic.otf"
+  - "BlackFont=content/fonts/Geist-Black.otf"
+  - "BlackItalicFont=content/fonts/Geist-BlackItalic.otf"
 header-includes: |
+  \usepackage{fontspec}
   \usepackage{paralist}
   \let\itemize\compactitem
   \pagenumbering{gobble}
@@ -15,82 +27,57 @@ header-includes: |
 
 # **Brennan Duck**
 
-_**Full-stack Web Developer**_
+[LinkedIn](https://linkedin.com/in/bduckdev) | [GitHub](https://github.com/bduckdev) | [Portfolio](https://bduck.dev) | Knoxville, TN
 
-[LinkedIn](https://linkedin.com/in/bduckdev) | [GitHub](https://github.com/bduckdev)
-| [Portfolio](https://bduck.dev/portfolio) | +1 (941) 730-0886 | Knoxville, TN
+## Education
 
-## Summary
+**Georgia Institute of Technology** | _M.S. Computer Science_ | **Incoming Fall 2026**
 
-Full-stack developer with 4+ years of combined professional and freelance experience building performant, modern web applications. Skilled in full lifecycle development, from architecture to deployment, and currently pursuing a B.S. in Computer Science.
+- Specialization: Computing Systems (Planned)
 
-### Technical Skills
+**Western Governors University** | _B.S. Computer Science_ | **Graduating May 2026**
 
-- Languages: TypeScript, JavaScript, Golang, HTML, CSS
-- Frameworks/Libraries: Svelte, Next.js, React, Bun, Node, Express, Elysia, Expo
-- Databases/ORMs: PostgreSQL, MySQL, Prisma, GORM, MongoDB, Mongoose
-- Tools and Platforms: Git/GitHub, Linux/Unix, GraphQL, tRPC, REST APIs, Docker
+- Focus: Data Structures, Algorithms, Operating Systems, Computer Architecture, Statistics
 
-### Technical Projects
+## Technical Skills
 
-**Duck Family Dental** - (Project is closed-source, repo available upon request) | [Site](https://duckfamilydental.com) - 03/2025
+- **Systems & Languages:** Go (Golang), C, Linux/Unix, Bash, Python, TypeScript, SQL
+- **Concepts:** Distributed Systems, Concurrency, Compilers/Interpreters, Memory Management, TCP/IP
+- **Tools:** Git, Docker, PostgreSQL, LLVM (familiarity), Make
 
-_Modern website built using SvelteKit and TailwindCSS, deployed in a custom Dockerized cloud environment._
+## Projects
 
-- SEO-friendly website to assist in patient acquisition for a dental practice.
-- Deployed in a self-hosted cloud environment with git workflows for handling updates as they are pushed to the repo.
+**Distributed Key-Value Store** | _Go, TCP, Concurrency_ | **Dec 2025 - Present**\
+_A high-performance, sharded key-value store built from scratch to explore distributed consensus and storage engines._
 
-**Watermelon King** - [Repo](https://github.com/bduckdev/watermelon-king)
-| [Site](https://bduck.dev/portfolio/watermelon-king) - 08/2023
+- Architected a custom TCP wire protocol for client-server communication, bypassing HTTP overhead for lower latency.
+- Implemented concurrent read/write operations using mutex locking to ensure thread safety under load.
+- Designed a Write-Ahead Log (WAL) to ensure data durability and crash recovery (In Progress).
+- **Status:** Core storage engine active; currently implementing replication logic.
 
-_Idle clicker game with a frontend built in Svelte and a backend in Go._
+**Bonobo Language Interpreter** | _Go, Pratt Parsing, AST_ | **Nov 2025 - Present**\
+_A custom interpreted programming language written in Go, featuring C-style syntax and first-class functions._
 
-- Created a responsive UI in Svelte that is suitable for mobile and desktop.
-- Wrote a performant backend in Go for handling user authentication and data retrieval
-- Built complex client-side functionality in TypeScript.
+- Implemented a Pratt Parser (Top-Down Operator Precedence) to handle complex expressions and operator associativity without parser generators.
+- Designed a strongly-typed Abstract Syntax Tree (AST) to represent the language's grammatical structure.
+- Built a REPL and AST-dumper to visualize parsing logic and tokenization in real-time.
+- **Status:** Parser complete; currently implementing the tree-walk evaluator.
 
-### Experience
+## Professional Experience
 
-**Duck Family Dental** | 2025 - Current
+**Duck Family Dental** | _Digital Systems Lead_ | **2025 - Current**
 
-_Sole Web Developer_
+- Architected and deployed the practice's digital infrastructure, ensuring HIPAA compliance and high availability on self-hosted hardware.
+- Engineered automated data pipelines for patient retention, reducing appointment no-shows by ~15% via custom backend services.
+- Migrated operations from costly third-party SaaS to internal tools, reducing annual technical overhead by thousands.
+- Managed a Dockerized Linux environment, handling DNS, SSL certificate rotation, and CI/CD workflows for zero-downtime updates.
 
-- Increased site traffic and patient leads by launching a fully-responsive, SEO-optimized website using SvelteKit and TailwindCSS.
-- Developed automated messaging pipelines to improve patient-retention and decrease no-shows.
-- Saved thousands of dollars yearly by building custom integrations to replace paid services.
+**Freelance** | _Software Developer_ | **2022 - Current**
 
-**Freelance** | 2022 - Current
+- Developed performant web solutions for local businesses, focusing on SEO optimization and lead generation analytics.
+- Integrated legacy systems with modern APIs to automate data entry and reporting workflows.
 
-_Web Developer_
+**SlopGoblins NPO** | _Frontend Engineer_ | **March 2024 - May 2024**
 
-- Built modern, maintainable, and SEO-friendly event pages for local businesses and
-  charities using modern frameworks like NextJS. Resulting in 25-80% higher event attendence.
-- Created performant lead generation pages with WordPress for a local insurance agency and
-  integrated them manually with necessary APIs. This resulted in a savings of
-  up to $30 per lead on approximately 125 daily leads generated.
-- Effectively communicated complex technical concepts to non-technical
-  clients/prospects.
-
-**SlopGoblins NPO (non-profit media project)** | March 2024 - May 2024
-
-_Software Engineer_
-
-- Built a reusable library of over 30 form components using React and TailwindCSS.
-- Implemented backend integration with Amazon S3 for efficient file storage and fetching.
-- Created a performant search page using the aforementioned library so that users could easily filter through and search for movies.
-
-### Education
-
-**Western Governors University** | _Bachelors of Computer Science_
-| **Graduating 2026**
-
-- Coursework in data structures, algorithms, and software engineering fundamentals
-- Supplemented with courses in mathematics, natural sciences, and computer systems
-
-**TripleTen (Previously Practicum) by Yandex** | _Software Engineering Program_
-| **Graduated May 2024**
-
-- Completed intensive training in modern web development in HTML, CSS, and JavaScript
-- Trained in front-end frameworks such as React with additional training in design patterns such as BEM.
-- Gained hands-on experience in back-end technologies including Node, Express, as well as both relational and non-relational databases.
-- Provided peer mentoring as a senior student, reinforcing mastery of front-end and back-end concepts.
+- Engineered a reusable component library to standardize UI across the platform, improving development velocity.
+- Optimized S3 asset delivery strategies to reduce load times for media-heavy pages.
