@@ -72,7 +72,7 @@ _A custom interpreted programming language written in Go, featuring C-style synt
 - Migrated operations from costly third-party SaaS to internal tools, reducing annual technical overhead by thousands.
 - Managed a Dockerized Linux environment, handling DNS, SSL certificate rotation, and CI/CD workflows for zero-downtime updates.
 
-**Freelance** | _Software Developer_ | **2022 - Current**
+**Freelance** | _Software Developer_ | **May 2024 - Current**
 
 - Developed performant web solutions for local businesses, focusing on SEO optimization and lead generation analytics.
 - Integrated legacy systems with modern APIs to automate data entry and reporting workflows.
