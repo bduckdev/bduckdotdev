@@ -47,7 +47,7 @@ header-includes: |
 
 ## Projects
 
-**Distributed Key-Value Store** | _Go, TCP, Concurrency_ | **Dec 2025 - Present**\
+[**Redish - Distributed Key-Value Store**](https://github.com/bduckdev/redish) | _Go, TCP, Concurrency_ | **Dec 2025 - Present**\
 _A high-performance, sharded key-value store built from scratch to explore distributed consensus and storage engines._
 
 - Architected a custom TCP wire protocol for client-server communication, bypassing HTTP overhead for lower latency.
@@ -55,7 +55,7 @@ _A high-performance, sharded key-value store built from scratch to explore distr
 - Designed a Write-Ahead Log (WAL) to ensure data durability and crash recovery (In Progress).
 - **Status:** Core storage engine active; currently implementing replication logic.
 
-**Bonobo Language Interpreter** | _Go, Pratt Parsing, AST_ | **Nov 2025 - Present**\
+[**Bonobo Language Interpreter**](https://github.com/bduckdev/bonobo-interpreter) | _Go, Pratt Parsing, AST_ | **Nov 2025 - Present**\
 _A custom interpreted programming language written in Go, featuring C-style syntax and first-class functions._
 
 - Implemented a Pratt Parser (Top-Down Operator Precedence) to handle complex expressions and operator associativity without parser generators.
