@@ -1,9 +1,9 @@
 ---
 geometry:
-  - top=5.00mm
-  - bottom=5.00mm
-  - left=3.00mm
-  - right=3.00mm
+  - top=2.50mm
+  - bottom=2.50mm
+  - left=2.00mm
+  - right=2.00mm
 fontsize: 11pt
 mainfont: "Geist"
 mainfontoptions:
@@ -25,7 +25,7 @@ header-includes: |
   \singlespacing
 ---
 
-# **Brennan Duck**
+# Brennan Duck
 
 [LinkedIn](https://linkedin.com/in/bduckdev) | [GitHub](https://github.com/bduckdev) | [Portfolio](https://bduck.dev) | Knoxville, TN
 
@@ -35,49 +35,47 @@ header-includes: |
 
 - Specialization: Computing Systems (Planned)
 
-**Western Governors University** | _B.S. Computer Science_ | **Graduating May 2026**
+**Western Governors University** | _B.S. Computer Science_ | **Expected May 2026**
 
-- Focus: Data Structures, Algorithms, Operating Systems, Computer Architecture, Statistics
+- Focus: Data Structures, Algorithms, Operating Systems, Computer Architecture
 
 ## Technical Skills
 
-- **Systems & Languages:** Go (Golang), C, Linux/Unix, Bash, Python, TypeScript, SQL
-- **Concepts:** Distributed Systems, Concurrency, Compilers/Interpreters, Memory Management, TCP/IP
-- **Tools:** Git, Docker, PostgreSQL, LLVM (familiarity), Make
+- **Languages:** Go (Golang), C, C++, Python, SQL, Bash, Java, TypeScript
+- **Backend & Systems:** RESTful APIs, Distributed Systems, Concurrency, Memory Management, TCP/IP, Relational Databases
+- **Cloud & Infrastructure:** AWS (S3, Lambda, EC2, IAM), Docker, Coolify, Linux/Unix, Git, PostgreSQL
 
 ## Projects
 
-[**Redish - Distributed Key-Value Store**](https://github.com/bduckdev/redish) | _Go, TCP, Concurrency_ | **Dec 2025 - Present**\
+[**Redish - Distributed Key-Value Store**](https://github.com/bduckdev/redish) | _Go, TCP, Concurrency_ | **Dec 2025 – Present**\
 _A high-performance, sharded key-value store built from scratch to explore distributed consensus and storage engines._
 
 - Architected a custom TCP wire protocol for client-server communication, bypassing HTTP overhead for lower latency.
-- Implemented concurrent read/write operations using mutex locking to ensure thread safety under load.
-- Designed a Write-Ahead Log (WAL) to ensure data durability and crash recovery (In Progress).
-- **Status:** Core storage engine active; currently implementing replication logic.
+- Implemented concurrent read/write operations using mutex locking to ensure thread safety under high load.
+- Designed a Write-Ahead Log (WAL) to ensure data durability and crash recovery.
 
-[**Bonobo Language Interpreter**](https://github.com/bduckdev/bonobo-interpreter) | _Go, Pratt Parsing, AST_ | **Nov 2025 - Present**\
-_A custom interpreted programming language written in Go, featuring C-style syntax and first-class functions._
+[**Bonobo Language Interpreter**](https://github.com/bduckdev/bonobo-interpreter) | _Go, AST, Parsing_ | **Nov 2025 – Present**\
+_A custom interpreted programming language written in Go._
 
-- Implemented a Pratt Parser (Top-Down Operator Precedence) to handle complex expressions and operator associativity without parser generators.
-- Designed a strongly-typed Abstract Syntax Tree (AST) to represent the language's grammatical structure.
+- Implemented a Pratt Parser (Top-Down Operator Precedence) to handle complex expressions without parser generators.
 - Built a REPL and AST-dumper to visualize parsing logic and tokenization in real-time.
-- **Status:** Parser complete; currently implementing the tree-walk evaluator.
 
 ## Professional Experience
 
-**Duck Family Dental** | _Digital Systems Lead_ | **2025 - Current**
+**Duck Family Dental** | _Digital Systems Lead_ | **Jan 2025 – Present**\
+_Architected and deployed internal digital infrastructure for a healthcare provider, focusing on cost optimization and process automation._
 
-- Architected and deployed the practice's digital infrastructure, ensuring HIPAA compliance and high availability on self-hosted hardware.
-- Engineered automated data pipelines for patient retention, reducing appointment no-shows by ~15% via custom backend services.
-- Migrated operations from costly third-party SaaS to internal tools, reducing annual technical overhead by thousands.
-- Managed a Dockerized Linux environment, handling DNS, SSL certificate rotation, and CI/CD workflows for zero-downtime updates.
+- **Cost Optimization:** Migrated operations from costly third-party SaaS to custom internal tools, reducing annual technical overhead by thousands of dollars.
+- **Backend Development:** Engineered a custom notification system to integrate internal patient records with external messaging APIs, improving retention and reducing appointment no-shows by ~15%.
+- **Infrastructure & DevOps:** Managed a Dockerized Linux environment on self-hosted hardware, handling DNS, SSL rotation, and CI/CD workflows for zero-downtime updates.
+- **Compliance:** Ensured strict adherence to HIPAA standards regarding data privacy and security.
 
-**Freelance** | _Software Developer_ | **May 2024 - Current**
+**Freelance** | _Software Developer_ | **May 2024 – Present**
 
-- Developed performant web solutions for local businesses, focusing on SEO optimization and lead generation analytics.
-- Integrated legacy systems with modern APIs to automate data entry and reporting workflows.
+- Developed performant web solutions for local businesses, integrating legacy systems with modern RESTful APIs to automate data entry and reporting workflows.
 
-**SlopGoblins NPO** | _Frontend Engineer_ | **March 2024 - May 2024**
+**Slopopedia** | _Software Engineering Extern_ | **March 2024 – May 2024**
+_A community platform for cult and B-movie enthusiasts_
 
-- Engineered a reusable component library to standardize UI across the platform, improving development velocity.
-- Optimized S3 asset delivery strategies to reduce load times for media-heavy pages.
+- Operated in an Agile environment, participating in code reviews and sprint planning to improve development velocity.
+- Implemented S3 presigned URL workflows to optimize secure asset delivery for media-heavy pages, reducing load times and eliminating public bucket exposure.
