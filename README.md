@@ -1,6 +1,6 @@
 # bduck.dev
 
-This is the code for my personal website which can be found
+This is the code for my personal website which can be found here
 👉[bduck.dev](https://bduck.dev)
 
 Focused on being fast, simple, and server-driven by using Go, Templ, and HTMX.
@@ -21,4 +21,5 @@ Focused on being fast, simple, and server-driven by using Go, Templ, and HTMX.
 
 ## TODO
 
--[ ] Proper post sorting using real date metadata instead of naive string comparison. -[ ] Make html metadata a separate component so that page layout can have author metadata on blog post.
+- [ ] Proper post sorting using real date metadata instead of naive string comparison.
+- [ ] Make html metadata a separate component so that page layout can have author metadata on blog post.
