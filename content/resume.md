@@ -31,11 +31,7 @@ header-includes: |
 
 ## Education
 
-**Georgia Institute of Technology** | _M.S. Computer Science_ | **Incoming Fall 2026**
-
-- Specialization: Computing Systems (Planned)
-
-**Western Governors University** | _B.S. Computer Science_ | **Expected May 2026**
+**Western Governors University** | _B.S. Computer Science_ | **Currently Attending**
 
 - Focus: Data Structures, Algorithms, Operating Systems, Computer Architecture
 
@@ -47,12 +43,12 @@ header-includes: |
 
 ## Projects
 
-[**Redish - Distributed Key-Value Store**](https://github.com/bduckdev/redish) | _Go, TCP, Concurrency_ | **Dec 2025 – Present**\
-_A high-performance, sharded key-value store built from scratch to explore distributed consensus and storage engines._
+[**Deterministic PII Redactor**](https://github.com/bduckdev/phi-redaction) | _Go, Data Structures, REST API_| **April 2026 – Present**\
+_High-performance PHI/PII redaction engine using regex, Aho-Corasick, and English grammatical patterns_
 
-- Architected a custom TCP wire protocol for client-server communication, bypassing HTTP overhead for lower latency.
-- Implemented concurrent read/write operations using mutex locking to ensure thread safety under high load.
-- Designed a Write-Ahead Log (WAL) to ensure data durability and crash recovery.
+- Architected a fully deterministic and auditable PHI/PII redaction pipeline, ensuring compliance and traceability for sensitive healthcare data
+- Designed and implemented a custom name detection system combining Aho-Corasick algorithm with grammatical rules, achieving up to 30x faster performance than traditional NER and LLM-based approaches
+- Built and deployed a REST API using Chi router to serve the redaction engine efficiently with low latency
 
 [**Bonobo Language Interpreter**](https://github.com/bduckdev/bonobo-interpreter) | _Go, AST, Parsing_ | **Nov 2025 – Present**\
 _A custom interpreted programming language written in Go._
@@ -62,19 +58,18 @@ _A custom interpreted programming language written in Go._
 
 ## Professional Experience
 
-**Duck Family Dental** | _Digital Systems Lead_ | **Jan 2025 – Present**\
-_Architected and deployed internal digital infrastructure for a healthcare provider, focusing on cost optimization and process automation._
+**ContinuumCloud** | _Software Engineering Intern_| **May 2026 – Present**\
+_Welligent AI and innovation team_
 
-- **Cost Optimization:** Migrated operations from costly third-party SaaS to custom internal tools, reducing annual technical overhead by thousands of dollars.
-- **Backend Development:** Engineered a custom notification system to integrate internal patient records with external messaging APIs, improving retention and reducing appointment no-shows by ~15%.
-- **Infrastructure & DevOps:** Managed a Dockerized Linux environment on self-hosted hardware, handling DNS, SSL rotation, and CI/CD workflows for zero-downtime updates.
-- **Compliance:** Ensured strict adherence to HIPAA standards regarding data privacy and security.
+- Architected and developed a Proof of Concept (PoC) for a modern Behavioral Health EHR system, designing scalable architecture to modernize legacy Welligent workflows and improve clinical documentation efficiency.
+- Built an insurance discovery tool that automates patient insurance verification and eligibility checks, streamlining revenue cycle processes within the Welligent platform.
+- Developed an internal data extraction tool that automates retrieval and processing of documents from SharePoint, significantly reducing manual data collection time for the AI and Innovation team.
 
 **Freelance** | _Software Developer_ | **May 2024 – Present**
 
 - Developed performant web solutions for local businesses, integrating legacy systems with modern RESTful APIs to automate data entry and reporting workflows.
 
-**Slopopedia** | _Software Engineering Extern_ | **March 2024 – May 2024**
+**Slopopedia** | _Software Engineering Extern_ | **March 2024 – May 2024**\
 _A community platform for cult and B-movie enthusiasts_
 
 - Operated in an Agile environment, participating in code reviews and sprint planning to improve development velocity.
